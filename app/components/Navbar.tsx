@@ -5,6 +5,7 @@ import Button from "./Button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -19,18 +20,27 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="w-full max-w-7xl mx-auto mt-4 flex justify-between items-center py-3 px-6 lg:px-4 z-50 relative rounded-l-full rounded-b-full lg:bord border-[#6a89a7]">
+    <header className="sticky top-0 w-full max-w-7xl mx-auto mt-4 px-6 lg:px-4 z-50 flex justify-between items-center py-3 rounded-l-full rounded-b-full lg:bord border-[#6a89a7] bg-black/50 backdrop-blur-md">
       <Link
         href="/"
         className="text-2xl font-bold uppercase tracking-widest text-[#6a89a7] rounded-l-full rounded-b-full bord border-[#6a89a7] px-2 cursor-pointer"
         aria-label="Creed Portfolio Home"
         onClick={closeMenu}
       >
-        Creed
+        <div className="border border-[#6a89a7] rounded-full rounded-tr-none">
+          <Image
+            src="/logo3.png"
+            alt="Creed Portfolio Logo"
+            width={70}
+            height={70}
+            className="rounded-full"
+          />
+        </div>
+        {/* Creed */}
       </Link>
 
       {/* Desktop Navigation */}
-      <nav className="border border-[#6a89a7] rounded-l-[30px] rounded-b-[30px] p-4 hidden md:flex space-x-10 text-lg font-medium">
+      <nav className="border border-[#6a89a7] rounded-full rounded-tr-none p-4 hidden md:flex space-x-10 text-lg font-medium">
         <Button variant="nav" href="/" isActive={pathname === "/"}>
           Home
         </Button>
@@ -63,13 +73,13 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md border-b border-[#6a89a7] p-8 md:hidden flex flex-col items-center space-y-6 shadow-2xl z-40 rounded-b-3xl">
+        <div className="absolute top-full left-8 right-8 bg-black/95 backdrop-blur-md border border-[#6a89a7] border-b-4 px-4 py-8 md:hidden flex flex-col items-center space-y-6 shadow-2xl z-40 rounded-b-3xl rounded-l-3xl">
           <Button
             variant="nav"
             href="/"
             isActive={pathname === "/"}
             onClick={closeMenu}
-            className="w-full text-center py-3"
+            className="w-full text-center px-6 py-3"
           >
             Home
           </Button>
@@ -79,7 +89,7 @@ const Navbar: React.FC = () => {
             href="/portfolio"
             isActive={pathname === "/portfolio"}
             onClick={closeMenu}
-            className="w-full text-center py-3"
+            className="w-full text-center px-6 py-3"
           >
             Portfolio
           </Button>
@@ -89,7 +99,7 @@ const Navbar: React.FC = () => {
             href="/contact"
             isActive={pathname === "/contact"}
             onClick={closeMenu}
-            className="w-full text-center py-3"
+            className="w-full text-center px-6 py-3"
           >
             Contact
           </Button>

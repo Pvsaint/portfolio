@@ -4,68 +4,78 @@ import { FaGithub } from "react-icons/fa6";
 import { RiTwitterXFill } from "react-icons/ri";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiLinkedin } from "react-icons/fi";
+import { useForm, UseFormRegister } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import Navbar from "./Navbar";
 import Button from "./Button";
 
+// Zod Schema Definition
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  subject: z.string().min(3, "Subject must be at least 3 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
+interface InputFieldProps {
+  name: keyof ContactFormData;
+  type: string;
+  placeholder: string;
+  register: UseFormRegister<ContactFormData>;
+  error?: string;
+}
+
+// Custom Input Field Component
+const InputField: React.FC<InputFieldProps> = ({
+  name,
+  type,
+  placeholder,
+  register,
+  error,
+}) => (
+  <div className="mb-8">
+    <input
+      type={type}
+      placeholder={placeholder}
+      {...register(name)}
+      className={`w-full bg-transparent border-b-2 ${
+        error ? "border-red-500" : "border-gray-600"
+      } text-gray-300 p-3 focus:outline-none transition-colors duration-300 placeholder:text-gray-500 ${
+        error ? "focus:border-red-500" : "focus:border-white"
+      }`}
+    />
+    {error && <span className="text-red-500 text-sm mt-1">{error}</span>}
+  </div>
+);
+
 const Contact: React.FC = () => {
-  // Type Definition for Form Data
-  interface ContactForm {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-  }
-
-  const [formData, setFormData] = useState<ContactForm>({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [messageStatus, setMessageStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const onSubmit = async (data: ContactFormData) => {
     setMessageStatus("idle");
 
     // Mock Submission Logic
-    console.log("Form Submitted:", formData);
+    console.log("Form Submitted:", data);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setMessageStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setMessageStatus("idle"), 5000);
-    }, 1500);
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    setMessageStatus("success");
+    reset();
+    setTimeout(() => setMessageStatus("idle"), 5000);
   };
-
-  // Custom Input Field Component
-  const InputField: React.FC<{
-    name: keyof ContactForm;
-    type: string;
-    placeholder: string;
-  }> = ({ name, type, placeholder }) => (
-    <input
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      value={formData[name]}
-      onChange={handleChange}
-      required
-      className="w-full bg-transparent border-b-2 border-gray-600 text-gray-300 p-3 mb-8 focus:border-white focus:outline-none transition-colors duration-300 placeholder:text-gray-500"
-    />
-  );
 
   return (
     <div className="min-h-screen bg-black text-white font-sans antialiased flex flex-col">
@@ -81,20 +91,48 @@ const Contact: React.FC = () => {
               Send Me a Message
             </h2>
 
-            <form onSubmit={handleSubmit} className="flex flex-col">
-              <InputField name="name" type="text" placeholder="Your Name" />
-              <InputField name="email" type="email" placeholder="Your Email" />
-              <InputField name="subject" type="text" placeholder="Subject" />
-
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                className="w-full bg-transparent border-b-2 border-gray-600 text-gray-300 p-3 mb-12 focus:border-white focus:outline-none transition-colors duration-300 placeholder:text-gray-500 resize-none"
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+              <InputField
+                name="name"
+                type="text"
+                placeholder="Your Name"
+                register={register}
+                error={errors.name?.message}
               />
+              <InputField
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                register={register}
+                error={errors.email?.message}
+              />
+              <InputField
+                name="subject"
+                type="text"
+                placeholder="Subject"
+                register={register}
+                error={errors.subject?.message}
+              />
+
+              <div className="mb-12">
+                <textarea
+                  placeholder="Your Message"
+                  {...register("message")}
+                  rows={5}
+                  className={`w-full bg-transparent border-b-2 ${
+                    errors.message ? "border-red-500" : "border-gray-600"
+                  } text-gray-300 p-3 focus:outline-none transition-colors duration-300 placeholder:text-gray-500 resize-none ${
+                    errors.message
+                      ? "focus:border-red-500"
+                      : "focus:border-white"
+                  }`}
+                />
+                {errors.message && (
+                  <span className="text-red-500 text-sm mt-1">
+                    {errors.message.message}
+                  </span>
+                )}
+              </div>
 
               <Button
                 type="submit"
@@ -110,12 +148,12 @@ const Contact: React.FC = () => {
 
               {/* Submission Status Message Box */}
               {messageStatus === "success" && (
-                <div className="mt-6 p-4 bg-green-900/50 text-green-300 rounded-lg text-center font-medium">
-                  Message sent successfully! I'll get back to you soon.
+                <div className="mt-6 p-4 bg-green-900/50 text-green-300 rounded-full rounded-tr-none text-center font-medium">
+                  Message sent successfully! I&apos;ll get back to you soon.
                 </div>
               )}
               {messageStatus === "error" && (
-                <div className="mt-6 p-4 bg-red-900/50 text-red-300 rounded-lg text-center font-medium">
+                <div className="mt-6 p-4 bg-red-900/50 text-red-300 rounded-full rounded-tr-none text-center font-medium">
                   An error occurred. Please try again later.
                 </div>
               )}
@@ -123,7 +161,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Right: Contact Info & Socials */}
-          <div className="flex flex-col justify-center border border-[#6a89a7] p-10 rounded-l-[40px] rounded-b-[40px] shadow-xl">
+          <div className="flex flex-col justify-center border border-[#6a89a7] p-10 rounded-[40px] rounded-tr-none shadow-xl">
             <p className="text-lg font-light uppercase tracking-wider text-[#6a89a7] mb-2">
               Get in touch
             </p>

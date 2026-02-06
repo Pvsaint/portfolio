@@ -51,11 +51,11 @@ const Portfolio: React.FC = () => {
       <Navbar />
 
       <main className="grow py-16 px-4 md:px-8 max-w-7xl mx-auto w-full">
-        <div className="flex flex-col mb-16 px-4">
+        <div className="flex flex-col mb-10 px-4">
           <p className="text-lg font-light uppercase tracking-wider text-[#6a89a7] mb-4">
             My Work
           </p>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+          <h1 className="text-2xl md:text-6xl font-extrabold text-white leading-tight">
             FEATURED PROJECTS
           </h1>
         </div>

@@ -17,7 +17,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="group border border-[#6a89a7] bg-[#111] rounded-l-[40px] rounded-b-[40px] overflow-hidden mb-2 hover:mb-0 hover:border-b-8 transition-all duration-300 flex flex-col">
+    <div className="group border border-[#6a89a7] bg-[#111] rounded-[40px] rounded-tr-none overflow-hidden mb-2 hover:mb-0 hover:border-b-8 transition-all duration-300 flex flex-col">
       {/* Image Container */}
       <div className="relative h-64 overflow-hidden">
         <img
@@ -64,7 +64,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 text-xs font-medium uppercase tracking-wider text-[#6a89a7] border border-[#6a89a7] rounded-l-full rounded-b-full"
+              className="px-3 py-1 text-xs font-medium uppercase tracking-wider text-[#6a89a7] border border-[#6a89a7] rounded-full rounded-tr-none"
             >
               {tag}
             </span>

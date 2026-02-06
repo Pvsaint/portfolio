@@ -23,15 +23,15 @@ const Button: React.FC<ButtonProps> = ({
   // Variant-specific classes
   let variantClasses = "";
   if (variant === "nav") {
-    variantClasses = "rounded-l-[30px] rounded-b-[30px] px-3";
+    variantClasses = "rounded-full rounded-tr-none px-3";
   } else if (variant === "primary") {
     // "Portfolio" CTA style
     variantClasses =
-      "w-full px-8 py-3 text-white text-lg font-semibold rounded-l-full rounded-b-full hover:border-b-[6px] shadow-lg duration-400";
+      "w-full px-8 py-3 text-white text-lg font-semibold rounded-full rounded-tr-none hover:border-b-[6px] shadow-lg duration-400";
   } else if (variant === "cta") {
     // "Contact me" CTA style (similar to primary but gray text initially)
     variantClasses =
-      "w-full md:w-auto px-8 py-3 text-gray-300 text-lg font-semibold rounded-l-full rounded-b-full hover:text-white hover:border-b-[6px]";
+      "w-full md:w-auto px-8 py-3 text-gray-300 text-lg font-semibold rounded-full rounded-tr-none hover:text-white hover:border-b-[6px]";
   }
 
   // Active/Hover State Logic with Margin Compensation
