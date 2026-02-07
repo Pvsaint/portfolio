@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   // Base classes common to all buttons
   const baseClasses =
-    "border border-[#6a89a7] transition-all duration-300 cursor-pointer flex items-center justify-center";
+    "border border-[#1d323e] transition-all duration-300 cursor-pointer flex items-center justify-center";
 
   // Variant-specific classes
   let variantClasses = "";
@@ -27,11 +27,11 @@ const Button: React.FC<ButtonProps> = ({
   } else if (variant === "primary") {
     // "Portfolio" CTA style
     variantClasses =
-      "w-full px-8 py-3 text-white text-lg font-semibold rounded-full rounded-tr-none hover:border-b-[6px] shadow-lg duration-400";
+      "w-full px-8 py-3 text-white text-lg font-semibold rounded-full rounded-tr-none hover:border-b-[8px] shadow-lg duration-400";
   } else if (variant === "cta") {
     // "Contact me" CTA style (similar to primary but gray text initially)
     variantClasses =
-      "w-full md:w-auto px-8 py-3 text-gray-300 text-lg font-semibold rounded-full rounded-tr-none hover:text-white hover:border-b-[6px]";
+      "w-full md:w-auto px-8 py-3 text-gray-300 text-lg font-semibold rounded-full rounded-tr-none hover:text-white hover:border-b-[8px]";
   }
 
   // Active/Hover State Logic with Margin Compensation

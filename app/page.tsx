@@ -32,7 +32,7 @@ const Home: React.FC = () => {
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-extrabold text-white leading-none mb-10">
               VICTOR PETER
             </h1>
-            <h2 className="text-3xl md:text-4xl font-light text-gray-300 mb-10">
+            <h2 className="text-2xl md:text-4xl font-light text-gray-300 mb-10">
               Software Developer
             </h2>
 
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
                 Portfolio
               </Button>
 
-              <Button variant="cta" href="/contact">
+              <Button variant="primary" href="/contact">
                 Contact me
               </Button>
             </div>

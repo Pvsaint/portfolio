@@ -42,7 +42,7 @@ const InputField: React.FC<InputFieldProps> = ({
       placeholder={placeholder}
       {...register(name)}
       className={`w-full bg-transparent border-b-2 ${
-        error ? "border-red-500" : "border-gray-600"
+        error ? "border-red-500" : "border-[#1d323e]"
       } text-gray-300 p-3 focus:outline-none transition-colors duration-300 placeholder:text-gray-500 ${
         error ? "focus:border-red-500" : "focus:border-white"
       }`}
@@ -87,6 +87,9 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 w-full max-w-6xl p-4">
           {/* Left: Contact Form */}
           <div className="flex flex-col justify-center">
+            <p className="text-lg font-light uppercase tracking-wider text-[#1d323e] mb-4">
+              Hire me
+            </p>
             <h2 className="text-2xl md:text-4xl font-extrabold mb-10 text-white">
               Send Me a Message
             </h2>
@@ -120,7 +123,7 @@ const Contact: React.FC = () => {
                   {...register("message")}
                   rows={5}
                   className={`w-full bg-transparent border-b-2 ${
-                    errors.message ? "border-red-500" : "border-gray-600"
+                    errors.message ? "border-red-500" : "border-[#1d323e]"
                   } text-gray-300 p-3 focus:outline-none transition-colors duration-300 placeholder:text-gray-500 resize-none ${
                     errors.message
                       ? "focus:border-red-500"
@@ -161,8 +164,8 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Right: Contact Info & Socials */}
-          <div className="flex flex-col justify-center border border-[#6a89a7] p-10 rounded-[40px] rounded-tr-none shadow-xl">
-            <p className="text-lg font-light uppercase tracking-wider text-[#6a89a7] mb-2">
+          <div className="flex flex-col justify-center border border-[#1d323e] border-b-6 border-l-6 p-10 rounded-[40px] rounded-tr-none shadow-xl">
+            <p className="text-lg font-light uppercase tracking-wider text-[#1d323e] mb-2">
               Get in touch
             </p>
             <h1 className="text-3xl lg:text-6xl font-extrabold text-white leading-tight mb-10">
