@@ -39,10 +39,10 @@ const Button: React.FC<ButtonProps> = ({
 
   if (variant === "nav") {
     if (isActive) {
-      stateClasses = "text-[#1d323e] border-b-[4px] mb-0";
+      stateClasses = "text-white border-b-[4px] mb-0 w-full";
     } else {
       stateClasses =
-        "text-[#6a89a7] hover:text-white hover:border-b-[4px] mb-[3px] hover:mb-0";
+        "text-[#6a89a7] hover:text-white hover:border-b-[4px] mb-[3px] hover:mb-0 w-full";
     }
   } else {
     // Primary / CTA buttons (6px border on hover)
@@ -54,6 +54,13 @@ const Button: React.FC<ButtonProps> = ({
   if (href) {
     // Check if it's an external link
     const isExternal = href.startsWith("http");
+    const isFullWidth =
+      className.includes("w-full") || className.includes("w-[100%]");
+    const linkClassName = isFullWidth
+      ? "w-full"
+      : variant === "primary"
+        ? "w-full md:w-auto"
+        : "";
 
     if (isExternal) {
       return (
@@ -61,7 +68,7 @@ const Button: React.FC<ButtonProps> = ({
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={variant === "primary" ? "w-full md:w-auto" : ""}
+          className={linkClassName}
         >
           <button className={combinedClasses} {...props}>
             {children}
@@ -71,11 +78,9 @@ const Button: React.FC<ButtonProps> = ({
     }
 
     // Internal link using Next.js Link
+
     return (
-      <Link
-        href={href}
-        className={variant === "primary" ? "w-full md:w-auto" : ""}
-      >
+      <Link href={href} className={linkClassName}>
         <button className={combinedClasses} {...props}>
           {children}
         </button>

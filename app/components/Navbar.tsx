@@ -9,8 +9,6 @@ import { RiMenu3Line } from "react-icons/ri";
 import { IoMdCloseCircle } from "react-icons/io";
 import { CgMenuHotdog } from "react-icons/cg";
 
-
-
 const Navbar: React.FC = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,14 +76,18 @@ const Navbar: React.FC = () => {
         onClick={toggleMenu}
         aria-label="Toggle Menu"
       >
-        {isMenuOpen ? <IoMdCloseCircle size={42} /> : <CgMenuHotdog size={42} />}
+        {isMenuOpen ? (
+          <IoMdCloseCircle size={42} />
+        ) : (
+          <CgMenuHotdog size={42} />
+        )}
       </button>
 
       {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
         <div className="absolute top-full left-8 right-8 bg-black/95 backdrop-blur-md border border-[#1d323e] border-b-4 border-l-4 px-4 py-8 md:hidden flex flex-col items-center space-y-6 shadow-2xl z-40 rounded-3xl rounded-tr-none">
           <Button
-            variant="primary"
+            variant="nav"
             href="/"
             isActive={pathname === "/"}
             onClick={closeMenu}
@@ -95,7 +97,7 @@ const Navbar: React.FC = () => {
           </Button>
 
           <Button
-            variant="primary"
+            variant="nav"
             href="/about"
             isActive={pathname === "/about"}
             onClick={closeMenu}
@@ -105,7 +107,7 @@ const Navbar: React.FC = () => {
           </Button>
 
           <Button
-            variant="primary"
+            variant="nav"
             href="/portfolio"
             isActive={pathname === "/portfolio"}
             onClick={closeMenu}
@@ -115,11 +117,11 @@ const Navbar: React.FC = () => {
           </Button>
 
           <Button
-            variant="primary"
+            variant="nav"
             href="/contact"
             isActive={pathname === "/contact"}
             onClick={closeMenu}
-            className="w-full text-center px-6 py-3"
+            className="text-center px-6 py-3"
           >
             Contact
           </Button>
