@@ -17,7 +17,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="group border border-[#1d323e] bg-[#111] rounded-[40px] rounded-tr-none overflow-hidden mb-2 hover:mb-0 hover:border-b-8 transition-all duration-300 flex flex-col">
+    <div className="group border border-[#1d323e] bg-[#111] rounded-[40px] rounded-tr-none overflow-hidden border-b-6 border-l-6 hover:scale-105 transition-all duration-300 flex flex-col h-full">
       {/* Image Container */}
       <div className="relative h-64 overflow-hidden">
         <img
