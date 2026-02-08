@@ -121,7 +121,7 @@ const Navbar: React.FC = () => {
             href="/contact"
             isActive={pathname === "/contact"}
             onClick={closeMenu}
-            className="text-center px-6 py-3"
+            className="w-full text-center px-6 py-3"
           >
             Contact
           </Button>
