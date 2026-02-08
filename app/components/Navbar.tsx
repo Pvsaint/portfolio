@@ -34,8 +34,8 @@ const Navbar: React.FC = () => {
             height={70}
             className="rounded-full"
           /> */}
-          <h3 className="text-2xl font-bold uppercase tracking-widest text-[#1d323e] cursor-pointer">
-            VP
+          <h3 className="text-xl md:text-3xl font-bold uppercase text-[#1d323e] cursor-pointer">
+            v
           </h3>
         </div>
         {/* Creed */}

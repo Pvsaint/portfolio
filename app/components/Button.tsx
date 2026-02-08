@@ -27,11 +27,11 @@ const Button: React.FC<ButtonProps> = ({
   } else if (variant === "primary") {
     // "Portfolio" CTA style
     variantClasses =
-      "w-full px-8 py-3 text-white text-lg font-semibold rounded-full rounded-tr-none hover:border-b-[8px] shadow-lg duration-400";
+      "w-full px-8 py-3 text-[#6a89a7] text-lg font-semibold rounded-full rounded-tr-none hover:border-b-[8px] shadow-lg duration-400";
   } else if (variant === "cta") {
     // "Contact me" CTA style (similar to primary but gray text initially)
     variantClasses =
-      "w-full md:w-auto px-8 py-3 text-gray-300 text-lg font-semibold rounded-full rounded-tr-none hover:text-white hover:border-b-[8px]";
+      "w-full md:w-auto px-8 py-3 text-[#6a89a7] text-lg font-semibold rounded-full rounded-tr-none hover:text-[#6a89a7] hover:border-b-[8px]";
   }
 
   // Active/Hover State Logic with Margin Compensation
@@ -39,10 +39,10 @@ const Button: React.FC<ButtonProps> = ({
 
   if (variant === "nav") {
     if (isActive) {
-      stateClasses = "text-white border-b-[4px] mb-0";
+      stateClasses = "text-[#1d323e] border-b-[4px] mb-0";
     } else {
       stateClasses =
-        "text-gray-400 hover:text-white hover:border-b-[4px] mb-[3px] hover:mb-0";
+        "text-[#6a89a7] hover:text-white hover:border-b-[4px] mb-[3px] hover:mb-0";
     }
   } else {
     // Primary / CTA buttons (6px border on hover)

@@ -55,7 +55,7 @@ const Portfolio: React.FC = () => {
           <p className="text-lg font-light uppercase tracking-wider text-[#6a89a7] mb-4">
             My Work
           </p>
-          <h1 className="text-2xl md:text-6xl font-extrabold text-white leading-tight">
+          <h1 className="text-2xl md:text-6xl font-extrabold text-[#6a89a7] leading-tight">
             FEATURED PROJECTS
           </h1>
         </div>

@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       {/* Content */}
       <div className="p-8 flex flex-col grow">
         <div className="flex justify-between items-start mb-4">
-          <h3 className="text-2xl font-bold text-white group-hover:text-[#6a89a7] transition-colors duration-300">
+          <h3 className="text-2xl font-bold text-[#6a89a7] group-hover:text-white transition-colors duration-300">
             {project.title}
           </h3>
           <div className="flex space-x-3 text-gray-400">

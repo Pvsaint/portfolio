@@ -90,7 +90,7 @@ const Contact: React.FC = () => {
             <p className="text-lg font-light uppercase tracking-wider text-[#1d323e] mb-4">
               Hire me
             </p>
-            <h2 className="text-2xl md:text-4xl font-extrabold mb-10 text-white">
+            <h2 className="text-2xl md:text-4xl font-extrabold mb-10 text-[#6a89a7]">
               Send Me a Message
             </h2>
 
@@ -168,18 +168,18 @@ const Contact: React.FC = () => {
             <p className="text-lg font-light uppercase tracking-wider text-[#1d323e] mb-2">
               Get in touch
             </p>
-            <h1 className="text-3xl lg:text-6xl font-extrabold text-white leading-tight mb-10">
+            <h1 className="text-3xl lg:text-6xl font-extrabold text-[#6a89a7] leading-tight mb-10">
               CONTACT ME
             </h1>
 
             {/* Contact Details */}
-            <div className="space-y-6 mb-12 text-gray-300">
+            <div className="space-y-6 mb-12 text-[#6a89a7]">
               <div className="flex items-center space-x-4">
-                <Mail className="w-6 h-6 text-white shrink-0" />
+                <Mail className="w-6 h-6 shrink-0" />
                 <span>vpeter817@gmail.com</span>
               </div>
               <div className="flex items-center space-x-4">
-                <Phone className="w-6 h-6 text-white hrink-0" />
+                <Phone className="w-6 h-6 shrink-0" />
                 <span>+234 8038534811</span>
               </div>
               <a
@@ -191,7 +191,7 @@ const Contact: React.FC = () => {
                 <span>+234 7074214017</span>
               </a>
               <div className="flex items-center space-x-4">
-                <MapPin className="w-6 h-6 text-white shrink-0" />
+                <MapPin className="w-6 h-6 shrink-0" />
                 <span>Kaduna Nigeria</span>
               </div>
             </div>
