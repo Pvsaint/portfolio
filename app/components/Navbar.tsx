@@ -5,7 +5,11 @@ import Button from "./Button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Image from "next/image";
+import { RiMenu3Line } from "react-icons/ri";
+import { IoMdCloseCircle } from "react-icons/io";
+import { CgMenuHotdog } from "react-icons/cg";
+
+
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -47,6 +51,10 @@ const Navbar: React.FC = () => {
           Home
         </Button>
 
+        <Button variant="nav" href="/about" isActive={pathname === "/about"}>
+          About
+        </Button>
+
         <Button
           variant="nav"
           href="/portfolio"
@@ -66,18 +74,18 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Toggle */}
       <button
-        className="md:hidden text-[#1d323e] hover:text-white transition-colors focus:outline-none"
+        className="md:hidden text-[#1d323e] transition-all duration-300 focus:outline-none"
         onClick={toggleMenu}
         aria-label="Toggle Menu"
       >
-        {isMenuOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
+        {isMenuOpen ? <IoMdCloseCircle size={42} /> : <CgMenuHotdog size={42} />}
       </button>
 
       {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
-        <div className="absolute top-full left-8 right-8 bg-black/95 backdrop-blur-md border border-[#1d323e] border-b-4 px-4 py-8 md:hidden flex flex-col items-center space-y-6 shadow-2xl z-40 rounded-b-3xl rounded-l-3xl">
+        <div className="absolute top-full left-8 right-8 bg-black/95 backdrop-blur-md border border-[#1d323e] border-b-4 border-l-4 px-4 py-8 md:hidden flex flex-col items-center space-y-6 shadow-2xl z-40 rounded-3xl rounded-tr-none">
           <Button
-            variant="nav"
+            variant="primary"
             href="/"
             isActive={pathname === "/"}
             onClick={closeMenu}
@@ -87,7 +95,17 @@ const Navbar: React.FC = () => {
           </Button>
 
           <Button
-            variant="nav"
+            variant="primary"
+            href="/about"
+            isActive={pathname === "/about"}
+            onClick={closeMenu}
+            className="w-full text-center px-6 py-3"
+          >
+            About
+          </Button>
+
+          <Button
+            variant="primary"
             href="/portfolio"
             isActive={pathname === "/portfolio"}
             onClick={closeMenu}
@@ -97,7 +115,7 @@ const Navbar: React.FC = () => {
           </Button>
 
           <Button
-            variant="nav"
+            variant="primary"
             href="/contact"
             isActive={pathname === "/contact"}
             onClick={closeMenu}

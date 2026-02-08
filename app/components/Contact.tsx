@@ -87,10 +87,10 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 w-full max-w-6xl p-4">
           {/* Left: Contact Form */}
           <div className="flex flex-col justify-center">
-            <p className="text-lg font-light uppercase tracking-wider text-[#1d323e] mb-4">
+            <p className="text-center lg:text-left text-sm md:text-lg font-light uppercase tracking-wider text-[#1d323e] mb-4">
               Hire me
             </p>
-            <h2 className="text-2xl md:text-4xl font-extrabold mb-10 text-[#6a89a7]">
+            <h2 className="text-center lg:text-left text-2xl md:text-4xl font-extrabold mb-10 text-[#6a89a7]">
               Send Me a Message
             </h2>
 
