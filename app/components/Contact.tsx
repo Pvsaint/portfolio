@@ -68,13 +68,27 @@ const Contact: React.FC = () => {
   const onSubmit = async (data: ContactFormData) => {
     setMessageStatus("idle");
 
-    // Mock Submission Logic
-    console.log("Form Submitted:", data);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setMessageStatus("success");
-    reset();
-    setTimeout(() => setMessageStatus("idle"), 5000);
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setMessageStatus("success");
+      reset();
+      setTimeout(() => setMessageStatus("idle"), 5000);
+    } catch (error) {
+      console.error("Submission error:", error);
+      setMessageStatus("error");
+      setTimeout(() => setMessageStatus("idle"), 5000);
+    }
   };
 
   return (
