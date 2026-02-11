@@ -17,7 +17,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="group border border-[#1d323e] bg-[#111] rounded-[40px] rounded-tr-none overflow-hidden border-b-6 border-l-6 hover:scale-105 transition-all duration-300 flex flex-col h-full">
+    <div className="group border border-surface bg-card rounded-[40px] rounded-tr-none overflow-hidden border-b-6 border-l-6 hover:scale-105 transition-all duration-300 flex flex-col h-full">
       {/* Image Container */}
       <div className="relative h-64 overflow-hidden">
         <img
@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       {/* Content */}
       <div className="p-8 flex flex-col grow">
         <div className="flex justify-between items-start mb-4">
-          <h3 className="text-2xl font-bold text-[#6a89a7] group-hover:text-white transition-colors duration-300">
+          <h3 className="text-2xl font-bold text-primary group-hover:text-white transition-colors duration-300">
             {project.title}
           </h3>
           <div className="flex space-x-3 text-gray-400">
@@ -64,7 +64,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 text-xs font-medium uppercase tracking-wider text-[#6a89a7] border border-[#6a89a7] rounded-full rounded-tr-none"
+              className="px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary border border-primary rounded-full rounded-tr-none"
             >
               {tag}
             </span>

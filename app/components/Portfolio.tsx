@@ -68,11 +68,11 @@ const Portfolio: React.FC = () => {
 
       <main className="grow py-16 w-full flex flex-col">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col mb-10">
-          <p className="text-center lg:text-left text-sm md:text-lg font-light uppercase tracking-wider text-[#1d323e] mb-4">
+          <p className="text-center lg:text-left text-sm md:text-lg font-light uppercase tracking-wider text-surface mb-4">
             My Work
           </p>
           <div className="flex justify-between items-end">
-            <h1 className="text-center lg:text-left text-2xl md:text-6xl font-extrabold text-[#6a89a7] leading-tight">
+            <h1 className="text-center lg:text-left text-2xl md:text-6xl font-extrabold text-primary leading-tight">
               FEATURED PROJECTS
             </h1>
 
@@ -80,7 +80,7 @@ const Portfolio: React.FC = () => {
             <div className="hidden md:flex space-x-4">
               <button
                 onClick={scrollPrev}
-                className="w-12 h-12 rounded-full border border-[#1d323e] flex items-center justify-center text-[#6a89a7] hover:bg-[#1d323e] hover:text-white transition-all duration-300 group"
+                className="w-12 h-12 rounded-full border border-surface flex items-center justify-center text-primary hover:bg-surface hover:text-white transition-all duration-300 group"
                 aria-label="Previous project"
               >
                 <ChevronLeft
@@ -90,7 +90,7 @@ const Portfolio: React.FC = () => {
               </button>
               <button
                 onClick={scrollNext}
-                className="w-12 h-12 rounded-full border border-[#1d323e] flex items-center justify-center text-[#6a89a7] hover:bg-[#1d323e] hover:text-white transition-all duration-300 group"
+                className="w-12 h-12 rounded-full border border-surface flex items-center justify-center text-primary hover:bg-surface hover:text-white transition-all duration-300 group"
                 aria-label="Next project"
               >
                 <ChevronRight
@@ -122,14 +122,14 @@ const Portfolio: React.FC = () => {
         <div className="flex md:hidden justify-center space-x-6 mt-6">
           <button
             onClick={scrollPrev}
-            className="w-12 h-12 rounded-full border border-[#1d323e] flex items-center justify-center text-[#6a89a7] hover:bg-[#1d323e] hover:text-white transition-all duration-300"
+            className="w-12 h-12 rounded-full border border-surface flex items-center justify-center text-primary hover:bg-surface hover:text-white transition-all duration-300"
             aria-label="Previous project"
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={scrollNext}
-            className="w-12 h-12 rounded-full border border-[#1d323e] flex items-center justify-center text-[#6a89a7] hover:bg-[#1d323e] hover:text-white transition-all duration-300"
+            className="w-12 h-12 rounded-full border border-surface flex items-center justify-center text-primary hover:bg-surface hover:text-white transition-all duration-300"
             aria-label="Next project"
           >
             <ChevronRight size={24} />

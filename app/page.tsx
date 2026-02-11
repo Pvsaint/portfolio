@@ -26,13 +26,13 @@ const Home: React.FC = () => {
         <div className="flex flex-col lg:flex-row w-full max-w-7xl mx-auto py-10 px-4 md:px-8 lg:px-0">
           {/* Left Text Content */}
           <div className="lg:w-1/2 flex flex-col justify-center text-center z-10 py-10 lg:py-0">
-            <p className="text-sm md:text-lg text-center lg:text-left font-light uppercase tracking-wider text-[#1d323e] mb-10 lg:ml-14">
+            <p className="text-sm md:text-lg text-center lg:text-left font-light uppercase tracking-wider text-surface mb-10 lg:ml-14">
               Hello!, my name is
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-[#6a89a7] leading-none mb-10">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-primary leading-none mb-10">
               VICTOR PETER
             </h1>
-            <h2 className="text-2xl md:text-4xl font-light text-[#1d323e] mb-10">
+            <h2 className="text-2xl md:text-4xl font-light text-surface mb-10">
               Software Developer
             </h2>
 
@@ -48,7 +48,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Social Media Icons */}
-            <div className="flex space-x-6 text-[#6a89a7] justify-center">
+            <div className="flex space-x-6 text-primary justify-center">
               <a
                 href="https://x.com/pvsaint"
                 aria-label="Instagram"
